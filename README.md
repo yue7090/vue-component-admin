@@ -1,1 +1,1 @@
-# vue-ccomponent-admin
+# vue-component-admin
