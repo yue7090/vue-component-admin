@@ -3,6 +3,8 @@
     </li>
     <li><a href="#tab-two-columns" data-toggle="tab">代码</a>
     </li>
+    <li><a href="#tab-result" data-toggle="tab" onclick="run()">预览</a>
+    </li>
 </ul>
 <form action="{{ route('component.update' , ['id' => $id]) }}" method="POST" class="form-horizontal">
 <input type="hidden" name="_method" value="PUT">
@@ -12,7 +14,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-red">
-                    <div class="panel-heading">修改组件</div>
                     <div class="panel-body pan">
                         <div class="form-body pal">
                             <div class="form-group">
@@ -93,12 +94,6 @@
                                     <textarea id="inputContent" rows="3" class="form-control" name="example">{{$component->example}}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group mbn">
-                                <label for="inputContent" class="col-md-3 control-label">效果预览</label>
-                                <div class="col-md-9">
-                                <button type="button" onclick="javascript:void(0)" class="btn btn-primary">点击查看</button>&nbsp;
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,12 +101,21 @@
         </div>
     </div>
     <div id="tab-two-columns" class="tab-pane fade">
-        <div class="row">
+    <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-yellow">
-                    <div class="panel-body pan">
-                            
-                            <pre id="editor" style="height:500px"></pre>
+                    <ul class="nav ul-edit nav-tabs responsive">
+                        <li class="active"><a href="#template_editor" data-toggle="tab">template</a>
+                        </li>
+                        <li><a href="#javascript_editor" data-toggle="tab">javascript</a>
+                        </li>
+                        <li><a href="#style_editor" data-toggle="tab">style</a>
+                        </li>
+                    </ul>
+
+                        <div style="background: transparent; border: 0; box-shadow: none !important" class="tab-content pan mtl mbn responsive">
+                            <pre id="template_editor" style="height:500px" class="tab-pane fade active in"></pre>
+                            <pre id="javascript_editor" style="height:500px" class="tab-pane fade"></pre>
+                            <pre id="style_editor" style="height:500px" class="tab-pane fade"></pre>
                             <!-- load ace -->
                             <script src="{{asset('ace/build/src/ace.js')}}"></script>
                             <!-- load ace language tools -->
@@ -119,27 +123,57 @@
                             <script>
                                 // trigger extension
                                 ace.require("ace/ext/language_tools");
-                                var editor = ace.edit("editor");
-                                editor.session.setMode("ace/mode/html");
-                                editor.setTheme("ace/theme/tomorrow");
+                                var template_editor = ace.edit("template_editor");
+                                template_editor.session.setMode("ace/mode/html");
+                                template_editor.setTheme("ace/theme/tomorrow");
                                 // enable autocompletion and snippets
-                                editor.setOptions({
+                                template_editor.setOptions({
+                                    enableBasicAutocompletion: true,
+                                    enableSnippets: true,
+                                    enableLiveAutocompletion: true
+                                });
+
+                                var javascript_editor = ace.edit("javascript_editor");
+                                javascript_editor.session.setMode("ace/mode/html");
+                                javascript_editor.setTheme("ace/theme/tomorrow");
+                                // enable autocompletion and snippets
+                                javascript_editor.setOptions({
+                                    enableBasicAutocompletion: true,
+                                    enableSnippets: true,
+                                    enableLiveAutocompletion: true
+                                });
+
+                                var style_editor = ace.edit("style_editor");
+                                style_editor.session.setMode("ace/mode/html");
+                                style_editor.setTheme("ace/theme/tomorrow");
+                                // enable autocompletion and snippets
+                                style_editor.setOptions({
                                     enableBasicAutocompletion: true,
                                     enableSnippets: true,
                                     enableLiveAutocompletion: true
                                 });
                             </script>
-                    </div>
-                </div>
+                        </div>
             </div>
         </div>
+    </div>
+    <div id="tab-result" class="tab-pane fade">
+        @include('component.partials.iframe')
     </div>
 </div>
 <div class="form-actions">
     <div class="col-md-offset-3 col-md-9">
-        <input type="hidden" id="code" name="code" value="<?php echo $component->code?>">
+        <input type="hidden" id="template" name="template" value="<?php echo $component->template?>">
+        <input type="hidden" id="javascript" name="javascript" value="<?php echo $component->javascript?>">
+        <input type="hidden" id="style" name="style" value="<?php echo $component->style?>">
         <button type="submit" class="btn btn-primary" onclick="formSubmit()">Send</button>&nbsp;
         <button type="button" class="btn btn-green">Cancel</button>
     </div>
 </div>
 </form>
+<script>
+    template_editor.setValue($("#template").val());
+    javascript_editor.setValue($("#javascript").val());
+    style_editor.setValue($("#style").val());
+</script>
+<script src="{{asset('js/run.js')}}"></script>

@@ -14,7 +14,7 @@
     </div> 
     <div class="clearfix"></div> 
 </li> 
-<li><a href="index.html"><i class="fa fa-tachometer fa-fw">
+<li><a href="{{url('admin')}}"><i class="fa fa-tachometer fa-fw">
     <div class="icon-bg bg-orange"></div></i><span class="menu-title">Dashboard</span></a> 
 </li> 
 <li><a href="#"><i class="fa fa-desktop fa-fw">

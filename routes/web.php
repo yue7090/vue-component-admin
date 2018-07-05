@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 Route::resource('/admin','AdminController');
 Route::resource('/component','ComponentController');
+Route::get('component/getById/{id}','ComponentController@getById');
+// Route::post('/component/getComponentById/{id}','ComponentController@getComponentById');
 Route::resource('/page','PageController');
 Route::resource('/app','AppController');

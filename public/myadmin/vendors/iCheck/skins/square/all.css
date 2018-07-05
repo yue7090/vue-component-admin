@@ -348,7 +348,6 @@
 (min-resolution: 120dpi) {
     .icheckbox_square-grey,
     .iradio_square-grey {
-        background-image: url(grey@2x.png);
         -webkit-background-size: 240px 24px;
         background-size: 240px 24px;
     }

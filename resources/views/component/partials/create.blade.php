@@ -3,6 +3,8 @@
     </li>
     <li><a href="#tab-two-columns" data-toggle="tab">代码</a>
     </li>
+    <li><a href="#tab-result" data-toggle="tab" onclick="run()">预览</a>
+    </li>
 </ul>
 <form action="{{ route('component.store') }}" method="POST" class="form-horizontal">
 {!! csrf_field() !!}
@@ -11,7 +13,6 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-red">
-                    <div class="panel-heading">创建组件</div>
                     <div class="panel-body pan">
                         <div class="form-body pal">
                             <div class="form-group">
@@ -92,12 +93,6 @@
                                     <textarea id="inputContent" rows="3" class="form-control" name="example"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group mbn">
-                                <label for="inputContent" class="col-md-3 control-label">效果预览</label>
-                                <div class="col-md-9">
-                                <button type="button" onclick="javascript:void(0)" class="btn btn-primary">点击查看</button>&nbsp;
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,7 +102,6 @@
     <div id="tab-two-columns" class="tab-pane fade">
         <div class="row">
             <div class="col-lg-12">
-
                     <ul class="nav ul-edit nav-tabs responsive">
                         <li class="active"><a href="#template_editor" data-toggle="tab">template</a>
                         </li>
@@ -162,6 +156,9 @@
             </div>
         </div>
     </div>
+    <div id="tab-result" class="tab-pane fade">
+        @include('component.partials.iframe')
+    </div>
 </div>
 <div class="form-actions">
     <div class="col-md-offset-3 col-md-9">
@@ -173,11 +170,4 @@
     </div>
 </div>
 </form>
-<script>
-    function formSubmit()
-    {
-        $("#template").val(template_editor.getValue());
-        $("#javascript").val(javascript_editor.getValue());
-        $("#style").val(style_editor.getValue());
-    }
-</script>
+<script src="{{asset('js/run.js')}}"></script>

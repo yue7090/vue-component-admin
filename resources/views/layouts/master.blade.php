@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
  <head> 
-  <title>One Page | Frontend</title> 
+  <title>@yield('title')</title> 
   <meta charset="utf-8" /> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
   <meta http-equiv="cache-control" content="no-cache" /> 
   <meta http-equiv="expires" content="Thu, 19 Nov 1900 08:52:00 GMT" /> 
-  <link rel="shortcut icon" href="{{asset('myadmin/images/icons/favicon.ico')}}" /> 
   <link rel="apple-touch-icon" href="{{asset('myadmin/images/icons/favicon.png')}}" /> 
   <link rel="apple-touch-icon" sizes="72x72" href="{{asset('images/icons/favicon-72x72.png')}}" /> 
   <link rel="apple-touch-icon" sizes="114x114" href="{{asset('images/icons/favicon-114x114.png')}}" /> 
@@ -23,7 +22,32 @@
   <!--Loading style--> 
   <link type="text/css" rel="stylesheet" href="{{asset('myadmin/css/themes/style1/orange-blue.css')}}" class="default-style" /> 
   <link type="text/css" rel="stylesheet" href="{{asset('myadmin/css/themes/style1/orange-blue.css')}}" id="theme-change" class="style-change color-change" /> 
-  <link type="text/css" rel="stylesheet" href="{{asset('myadmin/css/style-responsive.css')}}" /> 
+  <link type="text/css" rel="stylesheet" href="{{asset('myadmin/css/style-responsive.css')}}" />
+  <script src="{{asset('myadmin/js/jquery-1.10.2.min.js')}}"></script> 
+  <script src="{{asset('myadmin/js/jquery-migrate-1.2.1.min.js')}}"></script> 
+  <script src="{{asset('myadmin/js/jquery-ui.js')}}"></script> 
+  <!--loading bootstrap js--> 
+  <script src="{{asset('myadmin/vendors/bootstrap/js/bootstrap.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js')}}"></script> 
+  <script src="{{asset('myadmin/js/html5shiv.js')}}"></script> 
+  <script src="{{asset('myadmin/js/respond.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/metisMenu/jquery.metisMenu.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/slimScroll/jquery.slimscroll.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/jquery-cookie/jquery.cookie.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/iCheck/icheck.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/iCheck/custom.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/jquery-notific8/jquery.notific8.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/jquery-highcharts/highcharts.js')}}"></script> 
+  <script src="{{asset('myadmin/js/jquery.menu.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/jquery-pace/pace.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/holder/holder.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/responsive-tabs/responsive-tabs.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/jquery-news-ticker/jquery.newsTicker.min.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/moment/moment.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script> 
+  <script src="{{asset('myadmin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script> 
+  <!--CORE JAVASCRIPT--> 
+  <script src="{{asset('myadmin/js/main.js')}}"></script> 
  </head> 
  <body class=" "> 
   <div> 
@@ -354,7 +378,7 @@
      <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb"> 
       <div class="page-header pull-left"> 
        <div class="page-title">
-        One Page
+        @yield('page-title')
        </div> 
       </div> 
       <ol class="breadcrumb page-breadcrumb"> 
@@ -388,31 +412,6 @@
     <!--END PAGE WRAPPER--> 
    </div> 
   </div> 
-  <script src="{{asset('myadmin/js/jquery-1.10.2.min.js')}}"></script> 
-  <script src="{{asset('myadmin/js/jquery-migrate-1.2.1.min.js')}}"></script> 
-  <script src="{{asset('myadmin/js/jquery-ui.js')}}"></script> 
-  <!--loading bootstrap js--> 
-  <script src="{{asset('myadmin/vendors/bootstrap/js/bootstrap.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js')}}"></script> 
-  <script src="{{asset('myadmin/js/html5shiv.js')}}"></script> 
-  <script src="{{asset('myadmin/js/respond.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/metisMenu/jquery.metisMenu.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/slimScroll/jquery.slimscroll.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/jquery-cookie/jquery.cookie.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/iCheck/icheck.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/iCheck/custom.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/jquery-notific8/jquery.notific8.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/jquery-highcharts/highcharts.js')}}"></script> 
-  <script src="{{asset('myadmin/js/jquery.menu.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/jquery-pace/pace.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/holder/holder.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/responsive-tabs/responsive-tabs.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/jquery-news-ticker/jquery.newsTicker.min.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/moment/moment.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script> 
-  <script src="{{asset('myadmin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script> 
-  <!--CORE JAVASCRIPT--> 
-  <script src="{{asset('myadmin/js/main.js')}}"></script> 
   <!--LOADING SCRIPTS FOR PAGE--> 
  </body>
 </html>

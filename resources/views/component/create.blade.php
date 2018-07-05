@@ -1,5 +1,10 @@
 @extends('layouts.master')
-
+@section('title')
+创建组件
+@stop
+@section('page-title')
+创建组件
+@stop
 @section('content')
 @include('component.partials.create')
 @stop
